@@ -3,7 +3,8 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:id="@android:id/tabhost"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_height="fill_parent"
+              >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -16,60 +17,88 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:weightSum="7">
+            android:background="@color/red">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="6"
-                android:src="@drawable/logo_pertamina_go"/>
-
-            <ImageButton
-                android:id="@+id/img_filter"
-                android:layout_width="wrap_content"
+            <!--<ImageView-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/icon1a"/>-->
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_filter"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:layout_gravity="center_horizontal"/>
-
+                android:text="History"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/date"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Date"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textSize="20dp"-->
+            <!--/>-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="5">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/icon_gas"/>
+            android:weightSum="8"
+            android:layout_marginTop="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="4">
+                android:layout_weight="4"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="18 June 2018, 18:00"
+                    android:text="Refueling"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="18 June 2018"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="18:00"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="4"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="Pertamina Setiabudi"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -79,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Station Name"
+                    android:text="Pertalite"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -88,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Gas Type"
+                    android:text="5 lt"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -97,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Amount"
+                    android:text="90000"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -108,33 +137,28 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@color/old_grey"/>
+            android:background="@color/grey"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="5">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:src="@drawable/icon_gas"/>
+            android:weightSum="8"
+            android:layout_marginTop="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="4">
+                android:layout_weight="4"
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="18 June 2018, 18:00"
+                    android:text="Refueling"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -143,7 +167,33 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Station Name"
+                    android:text="18 June 2018"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="18:00"
+                    android:textSize="15sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="4"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="Pertamina Setiabudi"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -152,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Gas Type"
+                    android:text="Pertalite"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
@@ -161,13 +211,30 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:text="Amount"
+                    android:text="5 lt"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:text="90000"
                     android:textSize="15sp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/img_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_filter"
+            android:layout_gravity="right"
+            android:layout_alignParentBottom="true"/>
 
         <include layout="@layout/tab_layout"/>
     </LinearLayout>

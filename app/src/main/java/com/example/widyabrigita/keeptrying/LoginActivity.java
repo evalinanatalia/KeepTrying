@@ -57,15 +57,4 @@ public class LoginActivity extends AppCompatActivity {
 
   }
 
-//  public void login(){
-//    if(email.getText().toString().equals("admin") && pwd.getText().toString().equals("123")){
-//      Toast.makeText(getApplicationContext(),
-//          "Redirecting...", Toast.LENGTH_SHORT).show();
-//    } else {
-//      Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
-//
-//    }
-//
-//  }
-
 }

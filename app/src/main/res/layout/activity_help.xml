@@ -14,14 +14,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="@color/red">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:src="@drawable/logo_pertamina_go"/>
+                android:src="@drawable/icon1a"/>
         </LinearLayout>
 
         <include layout="@layout/tab_layout"/>

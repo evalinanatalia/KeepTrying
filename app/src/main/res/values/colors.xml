@@ -4,11 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background_pink_soft">#fff0f5</color>
-    <color name="grey">#eeeeee</color>
+
     <color name="white">#ffffff</color>
-    <color name="old_grey">#a39f9f</color>
-    <color name="red">#ba2525</color>
     <color name="black">#000000</color>
+    <color name="grey">#f6f6f6</color>
+    <color name="red">#ed1c24</color>
+    <color name="blue">#3498db</color>
+    <color name="green">#2ecc71</color>
 
     <!-- Screens background color-->
     <color name="bg_screen1">#f64c73</color>

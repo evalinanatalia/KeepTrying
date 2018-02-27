@@ -8,128 +8,165 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/white">
 
         <LinearLayout
             android:id="@+id/go_pertamina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:background="@color/red">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:src="@drawable/logo_pertamina_go"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Profile"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"/>
+
+            <!--<ImageView-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_weight="1"-->
+                <!--android:src="@drawable/icon1a"/>-->
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/old_grey"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/old_grey"
-                android:orientation="horizontal"
-                android:weightSum="8">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="2"
-                    android:gravity="left|center_horizontal"
-                    android:text="Widya Brigita"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"/>
-
-                <Button
-                    android:id="@+id/btn_edit_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="2dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="6"
-                    android:background="@color/red"
-                    android:text="Edit Profile"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"/>
-            </LinearLayout>
+            android:orientation="vertical"
+            android:background="@color/white">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
+                android:padding="15dp"
                 android:gravity="left"
-                android:text="+6285208916784"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
+                android:text="Personal Information"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="17sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey"/>
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
+                android:padding="15dp"
                 android:gravity="left"
-                android:text="gitawitt@gmail.com"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
+                android:text="jonyandre"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="15dp"
+                android:gravity="left"
+                android:text="Jony Andre"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:text="jony123@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/grey"/>
+
+            <TextView
+                android:id="@+id/no_hp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:text="085207818657"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/grey"/>
-
-        <Button
-            android:id="@+id/btn_change_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="@color/white"
-            android:gravity="center"
-            android:text="Change Password"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="15sp"/>
-    </LinearLayout>
+            android:layout_marginTop="5dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/blue"
+                android:text="Edit Profile"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btn_change_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/green"
+                android:text="Change Password"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
 
             <Button
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:gravity="center"
-                android:text="LOGOUT"
+                android:layout_marginRight="40dp"
+                android:layout_marginLeft="40dp"
+                android:background="@color/red"
+                android:text="Logout"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="15sp"/>
+
         </LinearLayout>
+    </LinearLayout>
 
-    </RelativeLayout>
-
-    <!--<include layout="@layout/tab_layout"/>-->
+    <include layout="@layout/tab_layout"/>
 
 </LinearLayout>

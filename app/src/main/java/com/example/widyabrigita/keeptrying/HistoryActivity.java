@@ -27,8 +27,8 @@ public class HistoryActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_history);
 
-    thedate = (TextView) findViewById(R.id.date);
-    sta_name = (TextView) findViewById(R.id.sta_name);
+//    thedate = (TextView) findViewById(R.id.date);
+//    sta_name = (TextView) findViewById(R.id.sta_name);
 
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://polls.apiblueprint.org")
@@ -51,9 +51,9 @@ public class HistoryActivity extends AppCompatActivity {
       }
     });
 
-    Intent incoming = getIntent();
-    String date = incoming.getStringExtra("date");
-    thedate.setText(date);
+//    Intent incoming = getIntent();
+//    String date = incoming.getStringExtra("date");
+//    thedate.setText(date);
 
     imgFilter = (ImageButton) findViewById(R.id.img_filter);
     imgFilter.setOnClickListener(new View.OnClickListener() {
