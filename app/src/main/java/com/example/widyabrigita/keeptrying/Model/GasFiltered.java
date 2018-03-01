@@ -5,19 +5,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class GasFiltered {
   @SerializedName("id")
-  @Expose
   private String id;
   @SerializedName("station_name")
-  @Expose
   private String stationName;
   @SerializedName("gas_type")
-  @Expose
   private String gasType;
   @SerializedName("created_date")
-  @Expose
   private String createdDate;
   @SerializedName("amount_rp")
-  @Expose
   private Integer amountRp;
 
   public String getId() {

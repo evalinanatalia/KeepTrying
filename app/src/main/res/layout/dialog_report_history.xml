@@ -31,6 +31,7 @@
                     android:layout_height="wrap_content"
                     android:hint="From Date :"
                     android:inputType="text"
+                    android:focusable="false"
                     android:maxLines="1"
                     android:text=""
                     android:textColor="@color/colorAccent"/>
@@ -47,6 +48,8 @@
                     android:layout_height="wrap_content"
                     android:hint="To Date :"
                     android:inputType="text"
+
+                    android:focusable="false"
                     android:maxLines="1"
                     android:text=""
                     android:textColor="@color/colorAccent"/>

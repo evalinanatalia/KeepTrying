@@ -3,12 +3,17 @@ package com.example.widyabrigita.keeptrying;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.example.widyabrigita.keeptrying.Adapter.HistoryAdapter;
 import com.example.widyabrigita.keeptrying.Model.GasFiltered;
+import com.example.widyabrigita.keeptrying.Model.Track;
 import com.example.widyabrigita.keeptrying.Network.NetworkService;
 
 import java.util.List;
@@ -20,34 +25,36 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HistoryActivity extends AppCompatActivity {
-  private TextView thedate, sta_name;
+  private ListView list;
   private ImageButton imgFilter;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_history);
+    setContentView(R.layout.activity_history_view);
 
-//    thedate = (TextView) findViewById(R.id.date);
-//    sta_name = (TextView) findViewById(R.id.sta_name);
+    list = (ListView) findViewById(R.id.recycle);
+    imgFilter = (ImageButton) findViewById(R.id.img_filter);
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://polls.apiblueprint.org")
+            .baseUrl("https://private-276a7f-pertaminago1.apiary-mock.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
     NetworkService service = retrofit.create(NetworkService.class);
-    Call<List<GasFiltered>> call = service.getHistory("Bearer 123", "application/json");
-    call.enqueue(new Callback<List<GasFiltered>>() {
+    Call<Track> call = service.getHistory();
+    call.enqueue(new Callback<Track>() {
       @Override
-      public void onResponse(Call<List<GasFiltered>> call, Response<List<GasFiltered>> response) {
-        List<GasFiltered> list = response.body();
-        //GasFiltered gasFiltered = null;
-        //sta_name.setText(list.get(0).getStationName());
+      public void onResponse(Call<Track> call, Response<Track> response) {
+        Track track = response.body();
+        List<GasFiltered> hist = track.getData();
+        //sta_name.setText(hist.get(0).getStationName());
+        HistoryAdapter hAdapter = new HistoryAdapter(HistoryActivity.this, hist);
+        list.setAdapter(hAdapter);
       }
 
       @Override
-      public void onFailure(Call<List<GasFiltered>> call, Throwable t) {
-
+      public void onFailure(Call<Track> call, Throwable t) {
+        Toast.makeText(HistoryActivity.this, "gagal",Toast.LENGTH_LONG).show();
       }
     });
 
@@ -55,11 +62,10 @@ public class HistoryActivity extends AppCompatActivity {
 //    String date = incoming.getStringExtra("date");
 //    thedate.setText(date);
 
-    imgFilter = (ImageButton) findViewById(R.id.img_filter);
     imgFilter.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        /*Intent intent = new Intent(HistoryActivity.this, CalendarActivity.class);
+       /* Intent intent = new Intent(HistoryActivity.this, CalendarActivity.class);
         startActivity(intent);*/
         DialogReportHistory dirh = new DialogReportHistory(HistoryActivity.this);
         dirh.showDialog();

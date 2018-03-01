@@ -6,6 +6,7 @@ import com.example.widyabrigita.keeptrying.Model.GasFiltered;
 import com.example.widyabrigita.keeptrying.Model.GasType;
 import com.example.widyabrigita.keeptrying.Model.Login;
 import com.example.widyabrigita.keeptrying.Model.Profile;
+import com.example.widyabrigita.keeptrying.Model.Track;
 
 import java.util.List;
 
@@ -53,9 +54,10 @@ public interface NetworkService {
       @Header("Content-Type") String type);
 
   @GET("/v1/history")
-  Call<List<GasFiltered>> getHistory(
-      @Header("Authorization") String credentials,
-      @Header("Content-Type") String  type);
+  Call<Track> getHistory(
+      //@Header("Authorization") String credentials,
+      //@Header("Content-Type") String  type);
+  );
 
 //  @GET("polls.apiblueprint.org/v1/history?start="09/11/2017"&end="20/11/2017")
 

@@ -20,17 +20,20 @@
         <activity
             android:name=".TabLayoutActivity"
             android:label="GO-PERTAMINA">
-           <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
-        </activity>
-
-        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
         </activity>
         <activity android:name=".HistoryActivity"/>
         <activity android:name=".HelpActivity"/>
