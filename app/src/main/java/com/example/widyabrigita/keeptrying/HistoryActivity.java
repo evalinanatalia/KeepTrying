@@ -1,5 +1,6 @@
 package com.example.widyabrigita.keeptrying;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.example.widyabrigita.keeptrying.Adapter.HistoryAdapter;
 import com.example.widyabrigita.keeptrying.Model.GasFiltered;
 import com.example.widyabrigita.keeptrying.Model.Track;
 import com.example.widyabrigita.keeptrying.Network.NetworkService;
+import com.example.widyabrigita.keeptrying.Remote.RetrofitClient;
 
 import java.util.List;
 
@@ -35,13 +37,15 @@ public class HistoryActivity extends AppCompatActivity {
     list = (ListView) findViewById(R.id.recycle);
     imgFilter = (ImageButton) findViewById(R.id.img_filter);
 
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://private-276a7f-pertaminago1.apiary-mock.com")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    NetworkService service = retrofit.create(NetworkService.class);
+    NetworkService service = RetrofitClient.getClient().create(NetworkService.class);
     Call<Track> call = service.getHistory();
+    final ProgressDialog progressDoalog;
+    progressDoalog = new ProgressDialog(HistoryActivity.this);
+    progressDoalog.setMax(100);
+    progressDoalog.setMessage("Loading data....");
+    progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+    // show it
+    progressDoalog.show();
     call.enqueue(new Callback<Track>() {
       @Override
       public void onResponse(Call<Track> call, Response<Track> response) {
@@ -49,12 +53,15 @@ public class HistoryActivity extends AppCompatActivity {
         List<GasFiltered> hist = track.getData();
         //sta_name.setText(hist.get(0).getStationName());
         HistoryAdapter hAdapter = new HistoryAdapter(HistoryActivity.this, hist);
+
         list.setAdapter(hAdapter);
+        progressDoalog.dismiss();
       }
 
       @Override
       public void onFailure(Call<Track> call, Throwable t) {
         Toast.makeText(HistoryActivity.this, "gagal",Toast.LENGTH_LONG).show();
+        progressDoalog.dismiss();
       }
     });
 
@@ -69,6 +76,40 @@ public class HistoryActivity extends AppCompatActivity {
         startActivity(intent);*/
         DialogReportHistory dirh = new DialogReportHistory(HistoryActivity.this);
         dirh.showDialog();
+        dirh.callBack(new OnCallback() {
+          @Override
+          public void setOnCallback(Object object) {
+            String tgl = (String) object;
+
+            NetworkService service = RetrofitClient.getClient().create(NetworkService.class);
+            Call<Track> call = service.getHistoryByDate("09/11/2017", "20/11/2017");
+            final ProgressDialog progressDoalog;
+            progressDoalog = new ProgressDialog(HistoryActivity.this);
+            progressDoalog.setMax(100);
+            progressDoalog.setMessage("Loading data....");
+            progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            // show it
+            progressDoalog.show();
+            call.enqueue(new Callback<Track>() {
+              @Override
+              public void onResponse(Call<Track> call, Response<Track> response) {
+                Track track = response.body();
+                List<GasFiltered> hist = track.getData();
+                //sta_name.setText(hist.get(0).getStationName());
+                HistoryAdapter hAdapter = new HistoryAdapter(HistoryActivity.this, hist);
+
+                list.setAdapter(hAdapter);
+                progressDoalog.dismiss();
+              }
+
+              @Override
+              public void onFailure(Call<Track> call, Throwable t) {
+                Toast.makeText(HistoryActivity.this, "gagal",Toast.LENGTH_LONG).show();
+                progressDoalog.dismiss();
+              }
+            });
+          }
+        });
       }
     });
   }

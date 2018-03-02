@@ -42,6 +42,7 @@ public class DialogReportHistory {
 
     Button btn_set;
     TextView from_date, to_date;
+    private OnCallback callback;
 
     Calendar myCalendar = Calendar.getInstance();
 
@@ -49,10 +50,9 @@ public class DialogReportHistory {
         this.context = mContext;
     }
 
-    /*public void callBack(OnCallback callback){
+    public void callBack(OnCallback callback){
         this.callback = callback;
     }
-*/
     public void showDialog() {
         if (mDialog == null) {
             mDialog = new Dialog(context, R.style.CustomDialogTheme);
@@ -86,6 +86,7 @@ public class DialogReportHistory {
         btn_set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                callback.setOnCallback(from_date +"/"+ to_date);
                 mDialog.dismiss();
             }
         });

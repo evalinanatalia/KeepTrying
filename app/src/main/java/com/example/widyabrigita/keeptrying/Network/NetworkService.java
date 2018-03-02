@@ -14,6 +14,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface NetworkService {
 
@@ -57,6 +58,12 @@ public interface NetworkService {
   Call<Track> getHistory(
       //@Header("Authorization") String credentials,
       //@Header("Content-Type") String  type);
+  );
+
+  @GET("/v1/history")
+  Call<Track> getHistoryByDate(
+          @Query("start") String start,
+          @Query("end") String end
   );
 
 //  @GET("polls.apiblueprint.org/v1/history?start="09/11/2017"&end="20/11/2017")
