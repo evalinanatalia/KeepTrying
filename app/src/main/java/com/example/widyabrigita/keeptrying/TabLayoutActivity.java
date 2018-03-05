@@ -3,15 +3,17 @@ package com.example.widyabrigita.keeptrying;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
 public class TabLayoutActivity extends TabActivity {
+  ActionBar actionBar;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.tab_layout);
-
     TabHost tabHost = getTabHost();
 
     // Tab for Home

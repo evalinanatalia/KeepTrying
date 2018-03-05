@@ -3,6 +3,7 @@ package com.example.widyabrigita.keeptrying;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -29,9 +30,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HistoryActivity extends AppCompatActivity {
   private ListView list;
   private ImageButton imgFilter;
+  ActionBar actionBar;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    //getSupportActionBar().setTitle("fjkdgj");
+    //actionBar.setTitle("jkfgjkfd");
     setContentView(R.layout.activity_history_view);
 
     list = (ListView) findViewById(R.id.recycle);
@@ -95,7 +99,6 @@ public class HistoryActivity extends AppCompatActivity {
               public void onResponse(Call<Track> call, Response<Track> response) {
                 Track track = response.body();
                 List<GasFiltered> hist = track.getData();
-                //sta_name.setText(hist.get(0).getStationName());
                 HistoryAdapter hAdapter = new HistoryAdapter(HistoryActivity.this, hist);
 
                 list.setAdapter(hAdapter);

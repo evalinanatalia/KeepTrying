@@ -10,17 +10,22 @@ import android.widget.Button;
 public class AccountActivity extends AppCompatActivity {
 
   Button btnLogout, btnEdit, btnChangePwd;
+  private SessionUser sessionUser;
 
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_account);
 
+    sessionUser = new SessionUser();
+
     btnLogout = (Button)findViewById(R.id.btn_logout);
     btnLogout.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
+        sessionUser.setSession(AccountActivity.this, "");
         Intent intent = new Intent(AccountActivity.this, LoginActivity.class);
         startActivity(intent);
+        finish();
       }
 
     });

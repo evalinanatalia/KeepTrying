@@ -1,5 +1,6 @@
 package com.example.widyabrigita.keeptrying;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +11,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.widyabrigita.keeptrying.Model.Login;
+import com.example.widyabrigita.keeptrying.Model.Track;
+import com.example.widyabrigita.keeptrying.Network.NetworkService;
+import com.example.widyabrigita.keeptrying.Remote.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LoginActivity extends AppCompatActivity {
+  private SessionUser sessionUser;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
+    sessionUser = new SessionUser();
 
     TextView textView = (TextView) findViewById(R.id.text_register);
     textView.setOnClickListener(new View.OnClickListener() {
@@ -30,8 +43,24 @@ public class LoginActivity extends AppCompatActivity {
     button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(LoginActivity.this, AccountActivity.class);
-        startActivity(intent);
+        NetworkService service = RetrofitClient.getClient().create(NetworkService.class);
+        Call<Login> call = service.postLogin();
+
+        call.enqueue(new Callback<Login>() {
+          @Override
+          public void onResponse(Call<Login> call, Response<Login> response) {
+            sessionUser.setSession(LoginActivity.this, "login");
+            Intent intent = new Intent(LoginActivity.this, TabLayoutActivity.class);
+            startActivity(intent);
+            finish();
+          }
+
+          @Override
+          public void onFailure(Call<Login> call, Throwable t) {
+            Toast.makeText(LoginActivity.this, "gagal",Toast.LENGTH_LONG).show();
+          }
+        });
+
       }
     });
 

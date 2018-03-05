@@ -11,6 +11,7 @@ import com.example.widyabrigita.keeptrying.Model.Track;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -39,8 +40,10 @@ public interface NetworkService {
       @Header("Pass-key") String passKey,
       @Header("Content-Type") String type);
 
-  @POST("polls.apiblueprint.org/v1/login")
-  Call<Login> postLogin(@Header("Authorization") String credentials);
+  @POST("/v1/login")
+  Call<Login> postLogin(
+
+  );
 
   @GET("polls.apiblueprint.org/v1/makeorder")
   Call<GasType> getOrder(
